@@ -24,11 +24,11 @@ public class MyStepdefs {
     }
 
     @When("^I do the operation on the value$")
-    public void iReverseTheValue() {
-        if (operation == "sqr"){
+    public void iDoTheOperationOnTheValue() {
+        if (operation.equals("sqr")){
             result = calculator.sqrt(value);
         }
-        else if (operation == "rvs") {
+        else if (operation.equals("rvs")) {
             result = calculator.reverse(value);
         }
         System.out.print(result);
