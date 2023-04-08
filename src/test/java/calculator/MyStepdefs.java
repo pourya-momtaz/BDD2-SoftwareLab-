@@ -10,7 +10,7 @@ public class MyStepdefs {
     private Calculator calculator;
     private int value;
     private String operation;
-    private int result;
+    private double result;
 
     @Before
     public void before() {
@@ -31,11 +31,11 @@ public class MyStepdefs {
         else if (operation.equals("rvs")) {
             result = calculator.reverse(value);
         }
-        System.out.print(result);
+        System.out.println(result);
     }
 
-    @Then("^I expect the result (-?\\d+)$")
-    public void iExpectTheResult(int arg0) {
-        Assert.assertEquals(arg0, result);
+    @Then("^I expect the result (-?\\d*.?\\d+)$")
+    public void iExpectTheResult(double arg0) {
+        Assert.assertEquals(arg0, result, 0.00001);
     }
 }
