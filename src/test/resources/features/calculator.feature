@@ -19,3 +19,13 @@ Feature: Calculator
       | Input | opt | result |
       | 4 | rvs | 0.25 |
       | 4 | sqr | 2 |
+
+  Scenario Outline: test calculator operations
+    Given One input value and operation, <Input> and <opt>
+    When I do the operation on the value
+    Then I expect the exception <result>
+
+    Examples:
+      | Input | opt | result |
+      | -1 | sqr | can't handle negative values |
+      | 0 | rvs | can't handle division by zero |
